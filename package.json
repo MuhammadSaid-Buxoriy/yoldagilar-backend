@@ -1,0 +1,46 @@
+{
+  "name": "yoldagilar-backend",
+  "version": "2.0.0",
+  "description": "Yoldagilar Challenge Platform Backend API - Professional Edition",
+  "main": "app.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "bot": "node telegram-bot.js",
+    "bot:dev": "nodemon telegram-bot.js",
+    "test": "echo \"Tests will be implemented\" && exit 0",
+    "validate:env": "node --input-type=module -e \"import('./config/config.js').then(m => { m.validateEnvironment(); console.log('✅ Environment validated!'); })\"",
+    "validate:db": "node --input-type=module -e \"import('./config/database.js').then(m => m.testDatabaseConnection().then(r => console.log('✅ Database:', r)))\"",
+    "health": "curl -s http://localhost:3000/api/health || echo 'Server not running'",
+    "deploy:check": "npm run validate:env && npm run validate:db && echo '🚀 Ready for deployment!'"
+  },
+  "keywords": [
+    "telegram",
+    "mini-app",
+    "challenge",
+    "api",
+    "backend",
+    "supabase",
+    "express",
+    "professional"
+  ],
+  "author": "Muhammad Said Buxoriy",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.50.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.1.0",
+    "joi": "^17.13.3",
+    "multer": "^2.0.1",
+    "node-telegram-bot-api": "^0.66.0",
+    "nodemon": "^3.1.10"
+  }
+}
